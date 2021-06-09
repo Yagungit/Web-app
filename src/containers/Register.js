@@ -21,7 +21,7 @@ const Register = () => (
             {Button('Register')}
         </div>
         <div className='LinkRecover'>
-            <NavLink exact to='/recover'>Forgot your password?</NavLink>
+            <NavLink exact to='/login'>Already have an account?</NavLink>
         </div>
     </div>
 );
