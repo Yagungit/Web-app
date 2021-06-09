@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const NavigationBar = () => { 
   return (
     <div className='NavBar'>
-        <NavLink className= 'Link' exact to='/'>Home</NavLink>
+        <NavLink className= 'Link' exact to='/home'>Home</NavLink>
         <NavLink className= 'Link' exact to='/login'>Login</NavLink>
         <NavLink className= 'Link' exact to='/register'>Register</NavLink>
     </div>

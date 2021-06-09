@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from './button/button.js'
-import Input from './input/input.js';
+import Button from '../components/button/button.js'
+import Input from '../components/input/input.js';
 
 
 const Register = () => (

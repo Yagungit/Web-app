@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './button/button';
-import Input from './input/input';
+import Button from '../components/button/button';
+import Input from '../components/input/input';
 
 
 const Recover = () => (

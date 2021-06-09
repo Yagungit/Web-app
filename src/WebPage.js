@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from './Main';
-import NavigationBar from './NavBar';
+import NavigationBar from './containers/NavBar';
 
 
 
