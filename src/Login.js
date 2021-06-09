@@ -1,18 +1,22 @@
 import React from 'react';
+import Button from './button/button.js'
+import Input from './input/input.js';
 
 
 const Login = () => (
-<div className="center">
+<div className='center'>
     <div >
         <h1>Login</h1>
     </div>
     <div>
-        <input autocomplete="off" autofocus name="username" placeholder="Username" type="text"></input>
+    {Input('Username', 'text')}
     </div>
     <div>
-        <input name="password" placeholder="Password" type="password"></input>
+    {Input('Password', 'password')}
     </div>
-        <button type="submit">Login</button>
+    <div>
+    {Button('Login')}
+     </div>   
 </div>
 );
 

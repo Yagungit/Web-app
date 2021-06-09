@@ -1,12 +1,12 @@
 import React from 'react';
 import Main from './Main';
-import Navigation_bar from './NavBar';
+import NavigationBar from './NavBar';
 
 
 
 const WebPage = () => (
     <div className='page'>
-    <Navigation_bar />
+    <NavigationBar />
     <Main />
     </div>
 );

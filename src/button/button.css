@@ -1,0 +1,31 @@
+
+.button {
+    width: 110px;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: 0.5s;
+    font-size: 18px;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+}
+.button:hover {
+    border: none;
+    color: white;
+    
+    font-size: 19px;
+    transform: scale(1.05);
+}
+
+.red {
+    border: 2px solid #ff4d4d;
+    color: #ff4d4d;
+}
+
+.red:hover {
+    background-color: #ff4d4d;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Source code from https://freefrontend.com/css-flat-buttons/ */

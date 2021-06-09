@@ -1,0 +1,47 @@
+.field {
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input {
+    
+    display:block;
+    position: relative;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: grey
+
+}
+
+label {
+    position: absolute;
+    transform: translateY(-23px);
+    display:block;
+    transition: all 0.3s ease-in;
+    pointer-events: none;
+    color: grey;
+}
+
+input:focus {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: red
+ 
+}
+
+input:valid + label,
+input:focus + label {
+    transform: scale(0.9) translate(-8%, -240%);
+    color: red;
+    
+    
+}
+
+ input:not(:focus):valid + label
+{
+    transform: scale(0.9) translate(-8%, -240%);
+    color: grey;
+    
+    
+}
