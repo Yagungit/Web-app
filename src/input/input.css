@@ -32,7 +32,7 @@ input:focus {
 
 input:valid + label,
 input:focus + label {
-    transform: scale(0.9) translate(-8%, -240%);
+    transform: scale(0.8) translate(-11%, -210%);
     color: red;
     
     
@@ -40,7 +40,7 @@ input:focus + label {
 
  input:not(:focus):valid + label
 {
-    transform: scale(0.9) translate(-8%, -240%);
+    transform: scale(0.8) translate(-11%, -210%);
     color: grey;
     
     
