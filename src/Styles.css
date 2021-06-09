@@ -37,7 +37,7 @@
   
 /* Add an active class to highlight the current page */
 .Link.active {
-  background-color: #01b371;
+  background-color: rgb(90, 86, 86);
   color: white;
 }
 
