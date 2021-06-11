@@ -11,6 +11,9 @@
 # production
 /build
 
+# test folder
+.{test}Auth
+
 # misc
 .DS_Store
 .env.local

@@ -1,7 +1,7 @@
 import React from 'react';
 import './input.css';
 
-function Input (placeholder, type, size) {
+function Input (placeholder, type, id, size) {
 
     if ( placeholder === undefined ) {
         placeholder = 'Hello, world!';
@@ -15,9 +15,13 @@ function Input (placeholder, type, size) {
         size = '20';
     }
 
+    if ( id === undefined ) {
+        size = 'standart';
+    }
+
     return (
         <div class='field'>
-          <input type={type} name={type} size={size} autocomplete='off' required/>
+          <input type={type} name={type} size={size} id={id} autocomplete='off' required/>
           <label>{placeholder}</label>
         </div>
       

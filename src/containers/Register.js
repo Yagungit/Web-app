@@ -8,14 +8,13 @@ const Register = () => (
     <div className='center'>
         <h1>Register</h1>
         <div>
-        {Input('Username', 'text')}
+            {Input('Username', 'text')}
         </div>
         <div>
-        {Input('Password', 'password')}
+            {Input('Password', 'password')}
         </div>
-    
         <div>
-        {Input('Confirmation', 'password')}
+            {Input('Confirmation', 'password')}
         </div>
         <div>
             {Button('Register')}

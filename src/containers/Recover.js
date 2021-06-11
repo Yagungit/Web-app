@@ -9,7 +9,7 @@ const Recover = () => (
         <h1>Password recovery</h1>
         <p> Please input your email</p>
         <div>
-            {Input('Email', 'text', '30')}
+            {Input('Email', 'text', 'email', '30')}
         </div>
         <div>
             {Button('Submit')}
