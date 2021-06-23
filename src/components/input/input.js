@@ -21,7 +21,7 @@ function Input (placeholder, type, id, size) {
 
     return (
         <div class='field'>
-          <input type={type} name={type} size={size} id={id} autocomplete='off' required/>
+          <input type={type} name={type} size={size} id={id} autoComplete='off' required/>
           <label>{placeholder}</label>
         </div>
       

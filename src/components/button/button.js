@@ -1,13 +1,13 @@
 import React from 'react';
 import './button.css'
 
-function Button (text) {
-    if ( text === undefined ) {
-        text = 'Hello!';
-    }
+
+
+const CustomButton = ({onClick, text}) => {  
+
     return (
-        <button class='button red'>{text}</button>
+        <button type='button' class='button red' onClick={onClick}>{text || 'button'}</button>
     );
 }
 
-export default Button
+export default CustomButton

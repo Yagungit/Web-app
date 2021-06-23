@@ -4,6 +4,7 @@ import NavigationBar from './containers/NavBar';
 
 
 
+
 const WebPage = () => (
     <div className='page'>
     <NavigationBar />

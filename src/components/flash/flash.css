@@ -1,0 +1,31 @@
+.Flash {
+    
+    margin:0 auto;
+    background-color: #ff9b9b;
+    color: black;
+    width: 220px;
+    border-radius: 5px;  
+  }
+
+
+
+.warning {
+    background-image: url('./image/warnning.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    
+}
+
+.alert {
+    background-image: url('./image/alert.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+}
+
+.succsess {
+    background-image: url('./image/success.png');
+    
+    
+    padding-left: 5px;
+}

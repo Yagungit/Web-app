@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../components/button/button';
+import CustomButton from '../components/button/button';
 import Input from '../components/input/input';
 
 
@@ -12,7 +12,7 @@ const Recover = () => (
             {Input('Email', 'text', 'email', '30')}
         </div>
         <div>
-            {Button('Submit')}
+            <CustomButton id='submit' onClick={() => { alert('I was clicked') }} text='Submit'/>
         </div>
         <div className='LinkRecover'>
         <NavLink exact to='/register'>Don't have an account?</NavLink>
