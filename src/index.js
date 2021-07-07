@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import WebPage from './WebPage';
 import './Styles.css'
-import GlobalState from './contexts/GlobalState';
+import AuthState from './contexts/AuthState';
 
-function App() {  
-    const [state, setState] = useState({auth: false});  
+
+const App = () => {
+    const [auth, setAuth] = useState(AuthState);
     return (    
-        <GlobalState.Provider value={[state, setState]}>
             <BrowserRouter>
-                <WebPage />
+                <AuthState.Provider value={{auth, setAuth}}>
+                    <WebPage />
+                </AuthState.Provider>
             </BrowserRouter>
-        </GlobalState.Provider>
     );
   }
 

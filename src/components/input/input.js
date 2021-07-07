@@ -1,10 +1,12 @@
 import React from 'react';
 import './input.css';
 
-function Input (placeholder, type, id, size) {
+const Input = (props) => {
+
+    let {placeholder, type, id, size} = props
 
     if ( placeholder === undefined ) {
-        placeholder = 'Hello, world!';
+        placeholder = 'Hello!';
     }
     
     if ( type === undefined ) {
@@ -20,7 +22,7 @@ function Input (placeholder, type, id, size) {
     }
 
     return (
-        <div class='field'>
+        <div className='field'>
           <input type={type} name={type} size={size} id={id} autoComplete='off' required/>
           <label>{placeholder}</label>
         </div>

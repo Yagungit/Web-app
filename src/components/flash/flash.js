@@ -7,7 +7,7 @@ const Flash = ({message, id}) => {
     return (
         <div className='Flash'>
             <img className='warnning'  alt=''></img>
-            <lable id={id}>{message || 'Hello!'}</lable>
+            <label id={id}>{message || 'Hello!'}</label>
         </div>
     );
 }

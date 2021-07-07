@@ -1,15 +1,15 @@
 import React from 'react';
 import Main from './Main';
-import NavigationBar from './containers/NavBar';
+import Navigation from './Navigation/Navigation';
 
 
 
 
 const WebPage = () => (
-    <div className='page'>
-    <NavigationBar />
-    <Main />
-    </div>
+        <>
+            <Navigation />
+            <Main />
+        </>
 );
 
 export default WebPage;

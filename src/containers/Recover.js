@@ -9,13 +9,13 @@ const Recover = () => (
         <h1>Password recovery</h1>
         <p> Please input your email</p>
         <div>
-            {Input('Email', 'text', 'email', '30')}
+            <Input type='text' name='email'  id='email' placeholder='Email' size='30'/>
         </div>
         <div>
             <CustomButton id='submit' onClick={() => { alert('I was clicked') }} text='Submit'/>
         </div>
         <div className='LinkRecover'>
-        <NavLink exact to='/register'>Don't have an account?</NavLink>
+            <NavLink exact to='/register'>Don't have an account?</NavLink>
         </div>
     </div>
 );
