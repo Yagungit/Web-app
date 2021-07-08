@@ -1,15 +1,9 @@
 import React from "react";
 
 
-
-
-
-
-function Private() {
-
+const Private = () => {
     return (
-        
-        <div className='private'><h1>Private Screen</h1></div>
+        <div className='page'><h1>Private Screen</h1></div>
     );
 }
 

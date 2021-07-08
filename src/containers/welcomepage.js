@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function Welcome() {
+const Welcome = () => {
     return (
-        <div className='home'><h1>Welcome page</h1></div>
+        <div className='page'><h1>Welcome page</h1></div>
     );
   }
 
-  export default Welcome;
+export default Welcome;

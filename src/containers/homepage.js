@@ -1,15 +1,10 @@
 import React from "react";
 
 
-
-
-
-
-function Home() {
+const Home = () => {
 
     return (
-        
-        <div className='home'><h1>Home Screen</h1></div>
+        <div className='page'><h1>Home Screen</h1></div>
     );
 }
 
