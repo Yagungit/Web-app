@@ -27,7 +27,7 @@ function SideBar() {
     function LogOut() {
 
         localStorage.removeItem('user');
-        
+
         setAuthStatus(false);
         console.log(isAuthorized);
         history.push('/home') 
@@ -78,7 +78,7 @@ function SideBar() {
                     </div>
                     <div className='item'>
                         <RiBriefcase4Fill className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/private'>Private</NavLink>
+                        <NavLink className= 'sidebar-text' exact to='/todo'>To do list</NavLink>
                     </div>
                     <LogInOut/>
                 </div>

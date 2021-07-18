@@ -41,7 +41,12 @@ export default function Login () {
 
         let user = JSON.parse(localStorage.getItem('user'));
 
-        if (document.getElementById('name').value !== user.user)
+        if (user === null) 
+        {
+            showFlash();
+        }
+
+        else if (document.getElementById('name').value !== user.user)
         {
             showFlash();
         }

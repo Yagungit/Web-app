@@ -44,7 +44,7 @@ const NavigationBar = () => {
 
             <div className='NavBar'>
                 <NavLink className= 'Link' exact to='/home'>Home</NavLink>
-                <NavLink className= 'Link' exact to='/private'>Private</NavLink>
+                <NavLink className= 'Link' exact to='/todo'>To do list</NavLink>
                 <div className='Login'>
                 <LogInOut/>
                 </div>
