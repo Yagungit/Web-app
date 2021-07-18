@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
     Switch,
     Route,
     Redirect } from 'react-router-dom';
-import AuthState from './contexts/AuthState';
+import { useAuth } from './contexts/AuthState';
 import Home from './containers/HomePage';
 import Login from './containers/Login';
 import Register from './containers/Register';
@@ -15,11 +15,11 @@ import Private from "./containers/PrivatePage";
 
 function PrivateRoute({ children, ...rest }) {
 
-    const [auth] = useState(AuthState);
+    const { isAuthorized } = useAuth();
 
-    console.log (auth)
+    console.log(isAuthorized)
 
-    if (auth)
+    if (!isAuthorized)
         return (
             <Redirect to= '/login'/>
     );

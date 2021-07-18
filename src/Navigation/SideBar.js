@@ -4,7 +4,7 @@ import { RiMenuLine, RiCloseFill, RiHome4Fill, RiLogoutBoxFill, RiBriefcase4Fill
 import './Home.ico'
 import './SideBar.css'
 import { NavLink, Redirect } from 'react-router-dom';
-import AuthState from '../contexts/AuthState.js';
+import { useAuth } from '../contexts/AuthState.js';
 
 function SideBar() {
     const SidebarCollapsed = localStorage.getItem('sidebar-collapsed');
@@ -19,17 +19,18 @@ function SideBar() {
         setIsExpanded(true);
         localStorage.removeItem('sidebar-collapsed');
     }
-    const [auth, setAuth] = useState(AuthState);
+        
+    const { isAuthorized, setAuthStatus } = useAuth();
 
     function LogOut() {
         localStorage.clear()
-        setAuth(false);
+        setAuthStatus(false);
         return <Redirect to= '/home'/> 
     }
 
     function LogInOut() {
         
-        if (auth) {
+        if (isAuthorized) {
             return (
                 <div className='item'>
                         <RiLogoutBoxFill className='sidebar-icon' />

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import WebPage from './WebPage';
 import './Styles.css'
-import AuthState from './contexts/AuthState';
+import { AuthContextProvider } from './contexts/AuthState';
 
 
 const App = () => {
-    const [auth, setAuth] = useState(AuthState);
-    return (    
-            <BrowserRouter>
-                <AuthState.Provider value={{auth, setAuth}}>
-                    <WebPage />
-                </AuthState.Provider>
-            </BrowserRouter>
+
+    return (  
+        <BrowserRouter>
+            <AuthContextProvider> 
+                <WebPage />
+            </AuthContextProvider>
+        </BrowserRouter>
     );
   }
 
 
 ReactDOM.render(
-    (<App/>),
+    <App/>,
     document.getElementById('root'),
 );

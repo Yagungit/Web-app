@@ -5,7 +5,7 @@ import {
 import CustomButton from '../components/button/button.js';
 import Input from '../components/input/input.js';
 import Flash from '../components/flash/flash.js';
-import  AuthState  from '../contexts/AuthState.js';
+import { useAuth } from '../contexts/AuthState.js';
 
 
 
@@ -20,15 +20,15 @@ export default function Login () {
         }, 3000);
     }
 
-    const [auth, setAuth] = useState(AuthState);
+    const { isAuthorized, setAuthStatus } = useAuth();
 
 
     const LogIn = () => {
         
             localStorage.setItem('user', document.getElementById('name').value);
             localStorage.setItem('password', document.getElementById('password').value);
-            setAuth(true);
-            console.log(auth);
+            setAuthStatus(true);
+            console.log(isAuthorized);
         
         return(    
             <Redirect to= '/home'/>   

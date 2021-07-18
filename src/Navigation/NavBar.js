@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import AuthState from '../contexts/AuthState.js';
+import { useAuth } from '../contexts/AuthState.js';
 
 
 /*<a href='#home' class='active'>Home</a>*/
@@ -11,18 +11,18 @@ import AuthState from '../contexts/AuthState.js';
 
 const NavigationBar = () => {
     
-    const [auth, setAuth] = useState(AuthState);
+    const { isAuthorized, setAuthStatus } = useAuth();
 
     function LogOut() {
         localStorage.clear();
-        setAuth(false);
-        console.log(auth);
+        setAuthStatus(false);
+        console.log(isAuthorized);
         return <Redirect to= '/home'/> 
     }
 
     function LogInOut() {
         
-        if (auth) {
+        if (false) {
             return (
                 <NavLink className= 'Link' onClick={LogOut} exact to='/'>Logout</NavLink>
             )
