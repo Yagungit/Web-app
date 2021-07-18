@@ -16,7 +16,8 @@ const NavigationBar = () => {
     const { isAuthorized, setAuthStatus } = useAuth();
 
     function LogOut() {
-        localStorage.clear();
+        
+        localStorage.removeItem('user');
         setAuthStatus(false);
         console.log(isAuthorized);
         history.push('/home')

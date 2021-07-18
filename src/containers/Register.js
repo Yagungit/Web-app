@@ -35,9 +35,14 @@ const Register = () => {
             showFlash();
         }
         else {
+
+            let user = {
+                user: document.getElementById('name').value,
+                password: document.getElementById('password').value
+            }
             
-            localStorage.setItem('user', document.getElementById('name').value);
-            localStorage.setItem('password', document.getElementById('password').value);
+            localStorage.setItem('user', JSON.stringify(user));
+
             setAuthStatus(true);
             console.log(isAuthorized)
             history.push('/home')

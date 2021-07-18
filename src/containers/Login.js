@@ -39,10 +39,13 @@ export default function Login () {
     
     const LogConfirm = () => {
 
-        if (document.getElementById('name').value !== localStorage.getItem('user')){
+        let user = JSON.parse(localStorage.getItem('user'));
+
+        if (document.getElementById('name').value !== user.user)
+        {
             showFlash();
         }
-        else if (document.getElementById('password').value !== localStorage.getItem('password'))
+        else if (document.getElementById('password').value !== user.password)
         {
             showFlash();
         }
