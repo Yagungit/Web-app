@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
-import CustomButton from '../components/button/button.js'
-import Flash from '../components/flash/flash.js';
-import Input from '../components/input/input.js';
-import { useAuth } from '../contexts/AuthState.js';
+import CustomButton from '../components/button/button'
+import Flash from '../components/flash/flash';
+import Input from '../components/input/input';
+import { useAuth } from '../contexts/AuthState';
 
 
 const Register = () => {
 
+    let history = useHistory();
+
     const [showResults, setshowFlash] = useState(false);
+
     const showFlash = () => {
         setshowFlash(true);
         setTimeout(() => {
@@ -17,8 +20,7 @@ const Register = () => {
     }
 
     const { isAuthorized, setAuthStatus } = useAuth();
-    let history = useHistory();
-
+    
     function RegConfirm() {
 
         if (document.getElementById('password').value !== document.getElementById('confirmpassword').value){

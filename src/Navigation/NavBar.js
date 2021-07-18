@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import {  useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthState.js';
+import { useAuth } from '../contexts/AuthState';
 
 
 /*<a href='#home' class='active'>Home</a>*/
@@ -10,6 +10,8 @@ import { useAuth } from '../contexts/AuthState.js';
 
 
 const NavigationBar = () => {
+
+    let history = useHistory();
     
     const { isAuthorized, setAuthStatus } = useAuth();
 
@@ -17,12 +19,12 @@ const NavigationBar = () => {
         localStorage.clear();
         setAuthStatus(false);
         console.log(isAuthorized);
-        return <Redirect to= '/home'/> 
+        history.push('/home')
     }
 
     function LogInOut() {
         
-        if (false) {
+        if (isAuthorized) {
             return (
                 <NavLink className= 'Link' onClick={LogOut} exact to='/'>Logout</NavLink>
             )

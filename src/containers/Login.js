@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import {
-    Redirect,
-    NavLink } from 'react-router-dom';
-import CustomButton from '../components/button/button.js';
-import Input from '../components/input/input.js';
-import Flash from '../components/flash/flash.js';
-import { useAuth } from '../contexts/AuthState.js';
+import {useHistory, NavLink } from 'react-router-dom';
+import CustomButton from '../components/button/button';
+import Input from '../components/input/input';
+import Flash from '../components/flash/flash';
+import { useAuth } from '../contexts/AuthState';
 
 
 
 export default function Login () {
+
+    let history = useHistory();
+
 
     const [showResults, setshowFlash] = useState(false);
 
@@ -31,7 +32,7 @@ export default function Login () {
             console.log(isAuthorized);
         
         return(    
-            <Redirect to= '/home'/>   
+            history.push('/home')   
         );
        
     }
