@@ -12,7 +12,7 @@ const Recover = () => (
             <Input type='text' name='email'  id='email' placeholder='Email' size='30'/>
         </div>
         <div>
-            <CustomButton id='submit' onClick={() => { alert('I was clicked') }} text='Submit'/>
+            <CustomButton id='submit' onClick={() => { alert('Option yet to be implemented') }} text='Submit'/>
         </div>
         <div className='LinkRecover'>
             <NavLink exact to='/register'>Don't have an account?</NavLink>

@@ -10,12 +10,14 @@ const Register = () => {
 
     let history = useHistory();
 
-    const [showResults, setshowFlash] = useState(false);
+    const [showResults, setShowFlash] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const showFlash = () => {
-        setshowFlash(true);
+    const ShowFlash = (message) => {
+        setErrorMessage(message);
+        setShowFlash(true);
         setTimeout(() => {
-            setshowFlash(false);
+            setShowFlash(false);
         }, 3000);
     }
 
@@ -23,18 +25,18 @@ const Register = () => {
     
     function RegConfirm() {
 
-        if (document.getElementById('password').value !== document.getElementById('confirmpassword').value){
-            showFlash();
-        }
-        else if (document.getElementById('name').value === '')
+        if (document.getElementById('name').value === '')
         {
-            showFlash();
+            ShowFlash('Invalid Name');
         }
         else if (document.getElementById('password').value === '')
         {
-            showFlash();
+            ShowFlash('Invalid Password');
         }
-        else {
+        else if (document.getElementById('password').value !== document.getElementById('confirmpassword').value) 
+        {
+            ShowFlash(`Passwords doesn't match`);
+        } else {
 
             let user = {
                 user: document.getElementById('name').value,
@@ -54,7 +56,7 @@ const Register = () => {
         <div className='center'>
             <h1>Register</h1>
             <div>
-                { showResults ? <Flash message='Error'/> : <span>&nbsp;&nbsp;</span> }
+                { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
             </div>
             <div>
                 <Input type='text' name='text'  id='name' placeholder='Username'/>

@@ -12,22 +12,22 @@ export default function Login () {
     let history = useHistory();
 
 
-    const [showResults, setshowFlash] = useState(false);
+    const [showResults, setShowFlash] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const showFlash = () => {
-        setshowFlash(true);
+    const ShowFlash = (message) => {
+        setErrorMessage(message);
+        setShowFlash(true);
         setTimeout(() => {
-            setshowFlash(false);
+            setShowFlash(false);
         }, 3000);
     }
 
-    const { isAuthorized, setAuthStatus } = useAuth();
 
+    const { isAuthorized, setAuthStatus } = useAuth();
 
     const LogIn = () => {
         
-            localStorage.setItem('user', document.getElementById('name').value);
-            localStorage.setItem('password', document.getElementById('password').value);
             setAuthStatus(true);
             console.log(isAuthorized);
         
@@ -43,16 +43,12 @@ export default function Login () {
 
         if (user === null) 
         {
-            showFlash();
+            ShowFlash(`User doesn't exist`);
         }
 
-        else if (document.getElementById('name').value !== user.user)
+        else if (document.getElementById('name').value !== user.user || document.getElementById('password').value !== user.password)
         {
-            showFlash();
-        }
-        else if (document.getElementById('password').value !== user.password)
-        {
-            showFlash();
+            ShowFlash(`Username or password doesn't match`);
         }
 
         else {
@@ -66,7 +62,7 @@ export default function Login () {
                 <h1>Login</h1>
             </div>
                 <div>
-                    { showResults ? <Flash message='No match'/> : <span>&nbsp;&nbsp;</span> }
+                    { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
                 </div>
             <div>
                 <Input type='text' name='text'  id='name' placeholder='Username'/>
