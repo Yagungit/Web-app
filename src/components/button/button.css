@@ -9,6 +9,7 @@
     font-size: 18px;
     border-radius: 5px;
     font-family: 'Lato', sans-serif;
+    margin: 20px;
 }
 .button:hover {
     border: none;

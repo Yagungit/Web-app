@@ -1,0 +1,28 @@
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+  
+.todo {
+    cursor: pointer;
+}
+
+.todo:hover {
+    color: red;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.strike:hover {
+    color: black;
+}
+
+.ToDoApp {
+    margin-left: 50px;
+    font-family: Comic Sans MS;
+}
+  

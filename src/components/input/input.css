@@ -11,13 +11,13 @@ input {
     position: relative;
     outline: 0;
     border-width: 0 0 2px;
-    border-color: grey
-
+    border-color: grey;
+    font-family: Comic Sans MS;
 }
 
 label {
     position: absolute;
-    transform: translateY(-23px);
+    transform: translateY(-25px);
     display:block;
     transition: all 0.3s ease-in;
     pointer-events: none;
@@ -33,7 +33,7 @@ input:focus {
 
 input:valid + label,
 input:focus + label {
-    transform: scale(0.8) translate(-11%, -210%);
+    transform: scale(0.8) translate(-11%, -230%);
     color: red;
     
     
@@ -41,7 +41,7 @@ input:focus + label {
 
  input:not(:focus):valid + label
 {
-    transform: scale(0.8) translate(-11%, -210%);
+    transform: scale(0.8) translate(-11%, -230%);
     color: grey;
     
     

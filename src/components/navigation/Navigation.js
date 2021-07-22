@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import NavigationBar from './NavBar';
-import SideBar from './SideBar';
+import NavigationBar from './NavBar/NavBar';
+import SideBar from './SideBar/SideBar';
 
 
 function Navigation() {

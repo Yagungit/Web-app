@@ -1,34 +1,20 @@
 import React from 'react';
 import './input.css';
 
-const Input = (props) => {
-
-    let {placeholder, type, id, size} = props
+const CustomInput = ({placeholder, ...props}) => {
 
     if ( placeholder === undefined ) {
         placeholder = 'Hello!';
     }
-    
-    if ( type === undefined ) {
-        type = 'text';
-    }
-
-    if ( size === undefined ) {
-        size = '20';
-    }
-
-    if ( id === undefined ) {
-        size = 'standart';
-    }
 
     return (
         <div className='field'>
-          <input type={type} name={type} size={size} id={id} autoComplete='off' required/>
+          <input autoComplete='off' required {...props}/>
           <label>{placeholder}</label>
         </div>
       
     );
 }
 
-export default Input
+export default CustomInput
 

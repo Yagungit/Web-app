@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
 import CustomButton from '../components/button/button'
 import Flash from '../components/flash/flash';
-import Input from '../components/input/input';
+import CustomInput from '../components/input/input';
 import { useAuth } from '../contexts/AuthState';
 
 
@@ -59,16 +59,18 @@ const Register = () => {
                 { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
             </div>
             <div>
-                <Input type='text' name='text'  id='name' placeholder='Username'/>
+                <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
             </div>
             <div>
-                <Input type='password' name='password'  id='password' placeholder='Password'/>
+                <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
             </div>
             <div>
-                <Input type='password' name='password'  id='confirmpassword' placeholder='Confirmation'/>
+                <CustomInput type='password' name='password'  id='confirmpassword' placeholder='Confirmation'/>
             </div>
             <div>
-                <CustomButton id='register' onClick={RegConfirm} text='Register'/>
+                <CustomButton id='register' onClick={RegConfirm}>
+                    Register
+                </CustomButton>
             </div>
             <div className='LinkRecover'>
                 <NavLink exact to='/login'>Already have an account?</NavLink>    

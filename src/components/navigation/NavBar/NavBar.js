@@ -1,7 +1,8 @@
 import React from 'react';
 import {  useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthState';
+import { useAuth } from '../../../contexts/AuthState';
+import './NavBar.css'
 
 
 /*<a href='#home' class='active'>Home</a>*/

@@ -3,10 +3,11 @@ import './button.css'
 
 
 
-const CustomButton = (props) => {  
-    let {onClick, text} = props
+const CustomButton = ({children, ...props}) => {
     return (
-        <button type='button' className= 'button red' onClick={onClick}>{text || 'button'}</button>
+        <button  className= 'button red' {...props}>
+        {children || 'button'}
+        </button>
     );
 }
 

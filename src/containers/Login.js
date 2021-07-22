@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useHistory, NavLink } from 'react-router-dom';
 import CustomButton from '../components/button/button';
-import Input from '../components/input/input';
+import CustomInput from '../components/input/input';
 import Flash from '../components/flash/flash';
 import { useAuth } from '../contexts/AuthState';
 
@@ -65,13 +65,15 @@ export default function Login () {
                     { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
                 </div>
             <div>
-                <Input type='text' name='text'  id='name' placeholder='Username'/>
+                <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
             </div>
             <div>
-                <Input type='password' name='password'  id='password' placeholder='Password'/>
+                <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
             </div>
             <div>
-                <CustomButton id='login' onClick={LogConfirm} text='Login'/>
+                <CustomButton type='button' id='login' onClick={LogConfirm}>
+                Login
+                </CustomButton>
             </div>
             <div className='LinkRecover'>
                 <NavLink exact to='/register'>Don't have an acount</NavLink>|<NavLink exact to='/recover'>Forgot your password?</NavLink>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Main from './Main';
-import Navigation from './Navigation/Navigation';
-
+import Navigation from './components/navigation/Navigation';
 
 
 

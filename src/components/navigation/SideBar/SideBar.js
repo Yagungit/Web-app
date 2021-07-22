@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react'
 import { RiMenuLine, RiCloseFill, RiHome4Fill, RiLogoutBoxFill, RiBriefcase4Fill, RiLoginBoxFill, RiRegisteredFill } from 'react-icons/ri'
-import './Home.ico'
 import './SideBar.css'
 import { NavLink,  useHistory } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthState';
+import { useAuth } from '../../../contexts/AuthState';
 
 function SideBar() {
     let history = useHistory();
