@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { 
     Switch,
     Route,
@@ -10,6 +10,7 @@ import Register from './containers/Register';
 import Recover from './containers/Recover';
 import Welcome from './containers/WelcomePage';
 import ToDoApp from './containers/todopage/ToDoApp';
+import DogsApp from './containers/dogspage/DogsApp';
 
 
 
@@ -30,18 +31,18 @@ return <Route {...children} {...rest}/>
 
 
 const Main = () => {
-    return (
-        
-            <Switch> {/* The Switch decides which component to show based on the current URL.*/}
-                <Route exact path='/' component={Welcome}></Route>
-                <PrivateRoute path='/home' component={Home}></PrivateRoute>
-                <PrivateRoute path='/todo' component={ToDoApp}></PrivateRoute>
-                <PrivateRoute path='/dogs' component={DogsApp}></PrivateRoute>
-                <Route exact path='/login' component={Login}></Route>
-                <Route exact path='/register' component={Register}></Route>
-                <Route exact path='/Recover' component={Recover}></Route>
-                <Route render={() => <h1 className='center'>404: page not found</h1>} />
-            </Switch>
+    return (  
+        <Switch> 
+        {/* The Switch decides which component to show based on the current URL.*/}
+            <Route exact path='/' component={Welcome}></Route>
+            <PrivateRoute path='/home' component={Home}></PrivateRoute>
+            <PrivateRoute path='/todo' component={ToDoApp}></PrivateRoute>
+            <PrivateRoute path='/dogs' component={DogsApp}></PrivateRoute>
+            <Route exact path='/login' component={Login}></Route>
+            <Route exact path='/register' component={Register}></Route>
+            <Route exact path='/Recover' component={Recover}></Route>
+            <Route render={() => <h1 className='center'>404: page not found</h1>} />
+        </Switch>
     );
 }
 export default Main;

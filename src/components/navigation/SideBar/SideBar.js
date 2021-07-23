@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { RiMenuLine, RiCloseFill, RiHome4Fill, RiLogoutBoxFill, RiBriefcase4Fill, RiLoginBoxFill, RiRegisteredFill } from 'react-icons/ri'
+import { RiMenuLine, RiCloseFill, RiHome4Fill, RiLogoutBoxFill, RiLoginBoxFill, RiRegisteredFill } from 'react-icons/ri'
+import { FaListAlt, FaDog } from "react-icons/fa";
+
 import './SideBar.css'
 import { NavLink,  useHistory } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthState';
@@ -75,8 +77,12 @@ function SideBar() {
                         <NavLink className= 'sidebar-text' exact to='/home'>Home</NavLink>
                     </div>
                     <div className='item'>
-                        <RiBriefcase4Fill className='sidebar-icon' />
+                        <FaListAlt className='sidebar-icon' />
                         <NavLink className= 'sidebar-text' exact to='/todo'>To do list</NavLink>
+                    </div>
+                    <div className='item'>
+                        <FaDog className='sidebar-icon' />
+                        <NavLink className= 'sidebar-text' exact to='/dogs'>Dogs</NavLink>
                     </div>
                     <LogInOut/>
                 </div>

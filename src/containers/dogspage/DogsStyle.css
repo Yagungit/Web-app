@@ -1,0 +1,47 @@
+.dog-img {
+    overflow: hidden;
+    padding: 5px;
+    margin: 2rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.dog-img img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* CSS Hack will make it width 100% and height 100% */
+    position: relative;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    /* Maintain aspect ratio */
+    max-height: 70%;
+    max-width: 70%;
+}
+
+@media (max-width: 480px) {
+.dog-img {
+    max-width: 260px;
+}
+}
+
+@media (min-width: 480px) and (max-width: 786px) {
+.dog-img {
+    max-width: 400px;
+}
+}
+
+@media (min-width: 786px) {
+.dog-img {
+    width: 200px;
+    height: 200px;
+}
+}
+
+.select-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
