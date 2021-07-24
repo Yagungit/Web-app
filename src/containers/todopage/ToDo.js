@@ -16,7 +16,7 @@ const ToDo = ({todo, handleToggle}) => {
         onClick={handleClick} 
         className={todo.complete ? 'todo strike' : 'todo'}
         >
-            {todo.id}. {todo.task}
+        {todo.task}
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <header>
+        <header className='center'>
             <h1>To Do List</h1>
         </header>
     );

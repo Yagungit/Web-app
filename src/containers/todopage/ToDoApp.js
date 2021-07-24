@@ -23,7 +23,6 @@ function ToDoApp () {
         let mapped = toDoList.map(task => {
             return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
         });
-        mapped.forEach((task, index) => task.id = index + 1);
         localStorage.setItem('ToDoData', JSON.stringify(mapped));
         setToDoList(mapped);
         console.log('togle');
@@ -33,7 +32,7 @@ function ToDoApp () {
         let filtered = toDoList.filter(task => {
             return !task.complete;
         });
-        let sorted = filtered.forEach((task, index) => task.id = index + 1);
+        let sorted = filtered
         localStorage.setItem('ToDoData', JSON.stringify(sorted));
         setToDoList(sorted);
         console.log('filter');

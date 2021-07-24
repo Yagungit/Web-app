@@ -37,14 +37,16 @@ function SideBar() {
         
         if (isAuthorized) {
             return (
-                <div className='item'>
-                        <RiLogoutBoxFill className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' onClick={LogOut} exact to='/'>Logout</NavLink>
+                <div >
+                    <div className='item'>
+                            <RiLogoutBoxFill className='sidebar-icon' />
+                            <NavLink className= 'sidebar-text' onClick={LogOut} exact to='/'>Logout</NavLink>
+                    </div>
                 </div>
             )
         } else {
             return (
-                <div>
+                <div >
                     <div className='item'>
                         <RiRegisteredFill className='sidebar-icon' />
                         <NavLink className= 'sidebar-text' exact to='/register'>Register</NavLink>

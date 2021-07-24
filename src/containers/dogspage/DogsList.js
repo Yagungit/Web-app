@@ -1,19 +1,27 @@
 import React from 'react';
-import Dogs from './Dogs';
 
 
-const DogsList = ({DogImg}) => {
+
+const DogsList = ({DogImg, DogList}) => {
     console.log('Dogs Listed')
     return(
-        <div>
-            <div>
-                {DogImg.map(dog => {
+            <div className='DogList' >
+                {DogImg.url.map(dog => {
+                    let url = new URL(dog);
+                    let pathArray =  url.pathname.split('/');
+                    let breed = pathArray[2];
                         return (
-                            <Dogs dog={dog} />
+                            <div className='DogList'>
+                                <div className='dog-img'>
+                                <img alt='dog' src={dog} />
+                                <div className='breed'>
+                                    <h3>{breed}</h3>
+                                </div>
+                                </div>
+                            </div>
                         )
                 })}
             </div>
-        </div>
     );
 }
 
