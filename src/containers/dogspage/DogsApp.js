@@ -85,9 +85,8 @@ const DogsApp = () => {
     const handleSelect = (e) => {
         setDogDisplay({ displayRandom: false });
         setDogDisplay({ displayBreed: false });
-        setDogSelected({ 
-            select: e.currentTarget.id
-        });
+        let selected = { select: e.currentTarget.id }
+        setDogSelected(selected);
         console.log(e.currentTarget.id);
         getDogImage();
     }
