@@ -14,7 +14,7 @@ code {
 
 .strike {
     text-decoration: line-through;
-    color: grey;
+    color: lightgrey;
 }
 
 .strike:hover {
