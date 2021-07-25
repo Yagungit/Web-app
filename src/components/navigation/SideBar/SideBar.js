@@ -38,23 +38,32 @@ function SideBar() {
         if (isAuthorized) {
             return (
                 <div >
-                    <div className='item'>
-                            <RiLogoutBoxFill className='sidebar-icon' />
-                            <NavLink className= 'sidebar-text' onClick={LogOut} exact to='/'>Logout</NavLink>
-                    </div>
+                            <NavLink className= 'sidebar-text' onClick={LogOut} exact to='/'>
+                                <div className='item'>
+                                <RiLogoutBoxFill className='sidebar-icon' />
+                                Logout
+                                </div>
+                            </NavLink>
+                    
                 </div>
             )
         } else {
             return (
                 <div >
-                    <div className='item'>
-                        <RiRegisteredFill className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/register'>Register</NavLink>
-                    </div>
-                    <div className='item'>
-                        <RiLoginBoxFill className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/login'>Login</NavLink>
-                    </div>
+                        <NavLink className= 'sidebar-text' exact to='/register'>
+                            <div className='item'>
+                            <RiRegisteredFill className='sidebar-icon' />
+                            Register
+                            </div>
+                        </NavLink>
+                   
+                        <NavLink className= 'sidebar-text' exact to='/login'>
+                            <div className='item'>
+                            <RiLoginBoxFill className='sidebar-icon' />
+                            Login
+                            </div>
+                        </NavLink>
+                   
                 </div>
             )
         }
@@ -74,18 +83,27 @@ function SideBar() {
                     }
                 </div>
                 <div className='sidebar-items'>
-                    <div className='item'>
-                        <RiHome4Fill className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/home'>Home</NavLink>
-                    </div>
-                    <div className='item'>
-                        <FaListAlt className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/todo'>To do list</NavLink>
-                    </div>
-                    <div className='item'>
-                        <FaDog className='sidebar-icon' />
-                        <NavLink className= 'sidebar-text' exact to='/dogs'>Dogs</NavLink>
-                    </div>
+                    
+                        <NavLink className= 'sidebar-text' exact to='/home'>
+                            <div className='item'>
+                            <RiHome4Fill className='sidebar-icon' />Home
+                            </div>
+                        </NavLink>
+            
+                        <NavLink className= 'sidebar-text' exact to='/todo'>
+                            <div className='item'>
+                            <FaListAlt className='sidebar-icon' />
+                            To do list
+                            </div>
+                        </NavLink>
+                    
+                        <NavLink className= 'sidebar-text' exact to='/dogs'>
+                            <div className='item'>
+                            <FaDog className='sidebar-icon' />
+                            Dogs
+                            </div>
+                        </NavLink>
+                    
                     <LogInOut/>
                 </div>
             </div>

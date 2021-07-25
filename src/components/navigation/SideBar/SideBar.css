@@ -28,6 +28,7 @@
     width: 1.25em;
     height: 1.25em;
     margin-right: 16px;
+    margin-bottom: 1px;
     cursor: pointer;
     user-select: none;
 }
@@ -56,12 +57,13 @@
     cursor: pointer;
 }
 
-.item .sidebar-text {
+ .sidebar-text  {
+    position: relative;
     color: white ;
 }
 
-.item:hover .sidebar-text {
-    color: black !important ;
+.item {
+    color: white  !important;
 }
 
 .item:hover {
