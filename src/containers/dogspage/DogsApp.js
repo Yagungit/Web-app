@@ -7,18 +7,20 @@ import DogsList from './DogsList';
 
 const DogsApp = () => {
 
+    
     const [ DogList, setDogList ] = useState(
         {imgURL: '',
         breed: '',
-        select: ''
+        select: '',
+        isLoaded: false
         }
     );
 
-    const [DogSelected, setDogSelected] = useState ({ 
-        select: ''
-    });
+    //const [DogSelected, setDogSelected] = useState ({ 
+    //    select: ''
+    //});
 
-    const [DogImg, setDogImg] = useState ();
+    const [DogImg, setDogImg] = useState ({ imgURL: [] });
 
     const [DogDisplay,setDogDisplay] = useState( [{
         displayRandom: false,
@@ -26,23 +28,28 @@ const DogsApp = () => {
         displayImg: false
         }
     ]);
+
+    let chosenBreed; //temp fix. Change to state control later
     
     const getDogImage = (e) => {
         setDogDisplay({ displayRandom: false });
         setDogDisplay({ displayBreed: false });
-        let url = `https://dog.ceo/api/breed/${DogSelected.select}/images/random/12`;
-        console.log(url)
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    let random = { url: data.message };
-                    setDogImg(random);
-                    setDogDisplay({ displayImg: true });
-                    console.log(data.message)
-                })
-                .catch(err => {
-                    console.log('error fetching image');
-                });
+
+        //chosenBreed is temp fix change to ${DogList.select}
+        let imgURL = `https://dog.ceo/api/breed/${chosenBreed}/images/random/12`; 
+        console.log(imgURL)
+        fetch(imgURL)
+            .then(res => res.json())
+            .then(data => {
+                let random = { imgURL: data.message };
+                setDogImg(random);
+                console.log(data.message)
+            })
+            .catch(err => {
+                console.log('error fetching image');
+            });
+        setDogDisplay({ displayImg: true }); 
+        setDogList({ isLoaded: true });   
     };
     
     //async function fetchBreed() {
@@ -67,14 +74,17 @@ const DogsApp = () => {
     } 
     
     const getRandomImage = () => {
+        setDogList({ isLoaded: false });
         setDogDisplay({ displayRandom: false });
         setDogDisplay({ displayImg: false });
+        setDogDisplay({ displayBreed: false });
         fetch('https://dog.ceo/api/breeds/image/random/12')
             .then(res => res.json())
             .then(data => {
-                let random = { url: data.message };
+                let random = { imgURL: data.message };
                 setDogImg(random);
                 setDogDisplay({ displayRandom: true });
+                setDogList({ isLoaded: true });
             })
             .catch(err => {
                 console.log('error fetching image');
@@ -83,10 +93,12 @@ const DogsApp = () => {
         
     
     const handleSelect = (e) => {
-        setDogDisplay({ displayRandom: false });
-        setDogDisplay({ displayBreed: false });
-        let selected = { select: e.currentTarget.id }
-        setDogSelected(selected);
+        setDogList({ 
+            select: e.currentTarget.id,
+            isLoaded: false
+        });
+        
+        chosenBreed = e.currentTarget.id;        //temp fix
         console.log(e.currentTarget.id);
         getDogImage();
     }
@@ -105,9 +117,9 @@ return (
         <div >
             <Header/>
             <DogsForm getRandomImage={getRandomImage} getBreed={getBreed} />
-            {DogDisplay.displayRandom ? <DogsList DogImg={DogImg} /> : <div/> }
-            {DogDisplay.displayBreed ? <DogsBreedList DogList={DogList} /> : <div/> }
-            {DogDisplay.displayImg ? <DogsList DogImg={DogImg} /> : <div/>}
+            { DogDisplay.displayRandom ? <DogsList DogImg={DogImg} DogList={DogList} /> : <div/> }
+            { DogDisplay.displayBreed ? <DogsBreedList DogList={DogList} /> : <div/> }
+            { DogDisplay.displayImg ? <DogsList DogImg={DogImg} DogList={DogList} /> : <div/> }
 
         </div>
 )
