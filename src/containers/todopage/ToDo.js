@@ -10,7 +10,7 @@ const ToDo = ({todo, handleToggle}) => {
     return (
         <div 
         id={todo.id} 
-        key={todo.id + todo.task} 
+        //key={todo.id + todo.task} //doesn't work for some reason
         name='todo' 
         value={todo.id} 
         onClick={handleClick} 

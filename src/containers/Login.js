@@ -11,6 +11,13 @@ export default function Login () {
 
     let history = useHistory();
 
+    React.useEffect(() => {    
+        if (sessionStorage.getItem('auth')) {
+            setAuthStatus(true);
+            history.go(-1)
+	    }
+    });
+
 
     const [showResults, setShowFlash] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -29,6 +36,7 @@ export default function Login () {
     const LogIn = () => {
         
             setAuthStatus(true);
+            sessionStorage.setItem('auth', 'true');
             console.log(isAuthorized);
         
         return(    

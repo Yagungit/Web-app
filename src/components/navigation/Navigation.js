@@ -3,6 +3,7 @@ import NavigationBar from './NavBar/NavBar';
 import SideBar from './SideBar/SideBar';
 
 
+
 function Navigation() {
 
     const [width,setWidth] = useState(window.innerWidth);

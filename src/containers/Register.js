@@ -44,7 +44,7 @@ const Register = () => {
             }
             
             localStorage.setItem('user', JSON.stringify(user));
-
+            sessionStorage.setItem('auth', 'true');
             setAuthStatus(true);
             console.log(isAuthorized)
             history.push('/home')

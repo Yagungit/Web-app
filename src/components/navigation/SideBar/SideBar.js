@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { RiMenuLine, RiCloseFill, RiHome4Fill, RiLogoutBoxFill, RiLoginBoxFill, RiRegisteredFill } from 'react-icons/ri'
 import { FaListAlt, FaDog } from "react-icons/fa";
-
 import './SideBar.css'
 import { NavLink,  useHistory } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthState';
 
 function SideBar() {
-    let history = useHistory();
     
-    const SidebarCollapsed = localStorage.getItem('sidebar-collapsed');
-    const [isExpanded, setIsExpanded] = useState(SidebarCollapsed ? false : true);
+    let history = useHistory();
+
+    React.useEffect(() => {    
+        localStorage.removeItem('sidebar-collapsed');
+        setIsExpanded(false);
+    }, []);
+
+    const [isExpanded, setIsExpanded] = useState({ SidebarCollapsed : false });
 
     const handleToggler = () => {
         if (isExpanded) {
@@ -27,7 +31,7 @@ function SideBar() {
     function LogOut() {
 
         localStorage.removeItem('user');
-
+        sessionStorage.removeItem('auth');
         setAuthStatus(false);
         console.log(isAuthorized);
         history.push('/home') 
@@ -100,7 +104,7 @@ function SideBar() {
                         <NavLink className= 'sidebar-text' exact to='/dogs'>
                             <div className='item'>
                             <FaDog className='sidebar-icon' />
-                            Dogs
+                            Dogs API
                             </div>
                         </NavLink>
                     

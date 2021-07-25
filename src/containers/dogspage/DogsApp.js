@@ -107,7 +107,7 @@ const DogsApp = () => {
         return (
             <div>
                 {DogList.breed.map(breed => 
-                    <div id={breed}  onClick={handleSelect} className='DogsBreedList'>{breed}</div>
+                    <div key={breed} id={breed}  onClick={handleSelect} className='DogsBreedList'>{breed}</div>
                     )}
             </div>
         )

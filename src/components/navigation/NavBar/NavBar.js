@@ -17,8 +17,8 @@ const NavigationBar = () => {
     const { isAuthorized, setAuthStatus } = useAuth();
 
     function LogOut() {
-        
         localStorage.removeItem('user');
+        sessionStorage.removeItem('auth');
         setAuthStatus(false);
         console.log(isAuthorized);
         history.push('/home')
@@ -46,7 +46,7 @@ const NavigationBar = () => {
             <div className='NavBar'>
                 <NavLink className= 'Link' exact to='/home'>Home</NavLink>
                 <NavLink className= 'Link' exact to='/todo'>To do list</NavLink>
-                <NavLink className= 'Link' exact to='/dogs'>Dogs</NavLink>
+                <NavLink className= 'Link' exact to='/dogs'>Dogs API</NavLink>
                 <div className='Login'>
                 <LogInOut/>
                 </div>

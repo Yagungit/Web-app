@@ -12,7 +12,7 @@ const DogsList = ({DogImg, DogList}) => {
                         let pathArray =  imgURL.pathname.split('/');
                         let breed = pathArray[2];
                             return (
-                                <div className='DogList'>
+                                <div key={pathArray} className='DogList'>
                                     <div className='dog-img'>
                                     <img alt='dog' src={dog} />
                                     <div className='breed'>
