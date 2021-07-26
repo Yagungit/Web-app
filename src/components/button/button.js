@@ -3,9 +3,9 @@ import './button.css'
 
 
 
-const CustomButton = ({children, ...props}) => {
+const CustomButton = ({type, children, ...props}) => {
     return (
-        <button  className= 'button red' {...props}>
+        <button type={type || 'button'} className= 'button red' {...props}>
         {children || 'button'}
         </button>
     );

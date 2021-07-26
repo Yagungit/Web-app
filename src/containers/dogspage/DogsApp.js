@@ -19,8 +19,7 @@ const DogsApp = () => {
         }
     );
 
-
-    let chosenBreed; //temp fix. Change to state control later
+    let chosenBreed; //temp fix, not a react like style. Change to state control later!
     
     const getDogImage = () => {
         setDogList({ 
@@ -124,7 +123,6 @@ const DogsApp = () => {
             { DogList.displayImg ? <DogsList DogList={DogList} /> : <div/> }
             </div>
         )
-
     }
     
     return (

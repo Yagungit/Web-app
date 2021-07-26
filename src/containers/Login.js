@@ -45,7 +45,8 @@ export default function Login () {
        
     }
     
-    const LogConfirm = () => {
+    const LogConfirm = (event) => {
+        event.preventDefault();
 
         let user = JSON.parse(localStorage.getItem('user'));
 
@@ -72,17 +73,19 @@ export default function Login () {
                 <div>
                     { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
                 </div>
-            <div>
-                <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
-            </div>
-            <div>
-                <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
-            </div>
-            <div>
-                <CustomButton type='button' id='login' onClick={LogConfirm}>
-                Login
-                </CustomButton>
-            </div>
+            <form onSubmit={LogConfirm}>
+                <div>
+                    <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
+                </div>
+                <div>
+                    <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
+                </div>
+                <div>
+                    <CustomButton type='submit' id='login'>
+                        Login
+                    </CustomButton>
+                </div>
+            </form>
             <div className='LinkRecover'>
                 <NavLink exact to='/register'>Don't have an acount</NavLink>|<NavLink exact to='/recover'>Forgot your password?</NavLink>
             </div>

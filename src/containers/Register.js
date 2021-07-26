@@ -23,19 +23,24 @@ const Register = () => {
 
     const { isAuthorized, setAuthStatus } = useAuth();
     
-    function RegConfirm() {
+    function RegConfirm(event) {
+        event.preventDefault();
 
-        if (document.getElementById('name').value === '')
+        let userInputName = document.getElementById('name').value;  
+        let userInputPassword = document.getElementById('password').value;
+        let userInputConfirm = document.getElementById('confirmpassword').value;
+
+        if (userInputName.length <= 5)
         {
-            ShowFlash('Invalid Name');
+            ShowFlash('Name should consist of minimum 6 characters!');
         }
-        else if (document.getElementById('password').value === '')
+        else if (userInputPassword.length <= 5)
         {
-            ShowFlash('Invalid Password');
+            ShowFlash('Password should consist of minimum 6 characters!');
         }
-        else if (document.getElementById('password').value !== document.getElementById('confirmpassword').value) 
+        else if (userInputPassword !== userInputConfirm) 
         {
-            ShowFlash(`Passwords doesn't match`);
+            ShowFlash(`Passwords doesn't match, please check again!`);
         } else {
 
             let user = {
@@ -56,22 +61,33 @@ const Register = () => {
         <div className='center'>
             <h1>Register</h1>
             <div>
-                { showResults ? <Flash message={errorMessage}/> : <span>&nbsp;&nbsp;</span> }
+                { showResults ? 
+                <Flash message={errorMessage}/> : 
+                <div>
+                    <div>
+                        <span>&nbsp;&nbsp;</span>
+                    </div>
+                    <div>
+                        <span>&nbsp;&nbsp;</span>
+                    </div>
+                </div>}
             </div>
-            <div>
-                <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
-            </div>
-            <div>
-                <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
-            </div>
-            <div>
-                <CustomInput type='password' name='password'  id='confirmpassword' placeholder='Confirmation'/>
-            </div>
-            <div>
-                <CustomButton id='register' onClick={RegConfirm}>
-                    Register
-                </CustomButton>
-            </div>
+            <form onSubmit={RegConfirm}>
+                <div>
+                    <CustomInput type='text' name='text'  id='name' placeholder='Username'/>
+                </div>
+                <div>
+                    <CustomInput type='password' name='password'  id='password' placeholder='Password'/>
+                </div>
+                <div>
+                    <CustomInput type='password' name='password'  id='confirmpassword' placeholder='Confirmation'/>
+                </div>
+                <div>
+                    <CustomButton type='submit' id='register'>
+                        Register
+                    </CustomButton>
+                </div>
+            </form>
             <div className='LinkRecover'>
                 <NavLink exact to='/login'>Already have an account?</NavLink>    
             </div>
