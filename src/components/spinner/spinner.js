@@ -1,13 +1,13 @@
 import React from 'react';
-import './spiner.css';
+import './spinner.css';
 import { FaCog } from 'react-icons/fa'
 
-const Spiner = () => {
+const Spinner = () => {
     return(
         <div>
-            <FaCog className='spiner'/>
+            <FaCog className='spinner'/>
         </div>
     )
 }
 
-export default Spiner;
+export default Spinner;

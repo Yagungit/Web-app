@@ -1,55 +1,50 @@
 import React, { useState } from 'react';
 import './DogsStyle.css'
-import Header from './Header';
+import Header from './DogsHeader';
 import DogsForm from './DogsForm';
 import DogsList from './DogsList';
+import Spinner from '../../components/spinner/spinner';
 
 
 const DogsApp = () => {
 
     
     const [ DogList, setDogList ] = useState(
-        {imgURL: '',
+        {imgURL: [],
         breed: '',
         select: '',
-        isLoaded: false
-        }
-    );
-
-    //const [DogSelected, setDogSelected] = useState ({ 
-    //    select: ''
-    //});
-
-    const [DogImg, setDogImg] = useState ({ imgURL: [] });
-
-    const [DogDisplay,setDogDisplay] = useState( [{
-        displayRandom: false,
+        isLoading: false,
         displayBreed: false,
         displayImg: false
         }
-    ]);
+    );
+
 
     let chosenBreed; //temp fix. Change to state control later
     
-    const getDogImage = (e) => {
-        setDogDisplay({ displayRandom: false });
-        setDogDisplay({ displayBreed: false });
-
-        //chosenBreed is temp fix change to ${DogList.select}
+    const getDogImage = () => {
+        setDogList({ 
+            displayImg: false,
+            select: chosenBreed,
+            isLoading: true 
+        });   
+        
+        //chosenBreed is temp fix, change to ${DogList.select}
         let imgURL = `https://dog.ceo/api/breed/${chosenBreed}/images/random/12`; 
         console.log(imgURL)
         fetch(imgURL)
             .then(res => res.json())
             .then(data => {
-                let random = { imgURL: data.message };
-                setDogImg(random);
+                setDogList({ 
+                    imgURL: data.message,
+                    displayImg: true,
+                    isLoading: false
+                 });
                 console.log(data.message)
             })
             .catch(err => {
                 console.log('error fetching image');
-            });
-        setDogDisplay({ displayImg: true }); 
-        setDogList({ isLoaded: true });   
+            });   
     };
     
     //async function fetchBreed() {
@@ -59,14 +54,19 @@ const DogsApp = () => {
     //  }
 
     const getBreed = () => {
-        setDogDisplay({ displayRandom: false });
-        setDogDisplay({ displayImg: false });
+        setDogList({ 
+            isLoading: true,
+            displayImg: false,
+            displayBreed: false
+         });
         fetch('https://dog.ceo/api/breeds/list')
             .then(res => res.json())
             .then(breed => {
-                setDogList({breed: breed.message});
-                setDogDisplay({ displayBreed: true });
-            })
+                setDogList({
+                    breed: breed.message,
+                    isLoading: false,
+                    displayBreed: true });
+                })
             .catch(err => {
                 console.log('error fetching list');
             });
@@ -74,17 +74,17 @@ const DogsApp = () => {
     } 
     
     const getRandomImage = () => {
-        setDogList({ isLoaded: false });
-        setDogDisplay({ displayRandom: false });
-        setDogDisplay({ displayImg: false });
-        setDogDisplay({ displayBreed: false });
+        setDogList({ 
+            isLoading: true,
+            displayImg: false,
+            displayBreed: false });
         fetch('https://dog.ceo/api/breeds/image/random/12')
             .then(res => res.json())
             .then(data => {
-                let random = { imgURL: data.message };
-                setDogImg(random);
-                setDogDisplay({ displayRandom: true });
-                setDogList({ isLoaded: true });
+                setDogList({ 
+                    imgURL: data.message,
+                    isLoading: false,
+                    displayImg: true });
             })
             .catch(err => {
                 console.log('error fetching image');
@@ -94,12 +94,16 @@ const DogsApp = () => {
     
     const handleSelect = (e) => {
         setDogList({ 
+            displayImg: false,
+            displayBreed: false,
             select: e.currentTarget.id,
-            isLoaded: false
+            isLoading: true,
         });
-        
-        chosenBreed = e.currentTarget.id;        //temp fix
-        console.log(e.currentTarget.id);
+        chosenBreed = e.currentTarget.id;  //temp fix
+  
+        console.log(e.currentTarget.id); // Correctly display chosen value
+        console.log(DogList.select); // still undefined ! ! !
+
         getDogImage();
     }
 
@@ -108,21 +112,28 @@ const DogsApp = () => {
             <div>
                 {DogList.breed.map(breed => 
                     <div key={breed} id={breed}  onClick={handleSelect} className='DogsBreedList'>{breed}</div>
-                    )}
+                )}
             </div>
         )
     }
-    
-return (
-        <div >
-            <Header/>
-            <DogsForm getRandomImage={getRandomImage} getBreed={getBreed} />
-            { DogDisplay.displayRandom ? <DogsList DogImg={DogImg} DogList={DogList} /> : <div/> }
-            { DogDisplay.displayBreed ? <DogsBreedList DogList={DogList} /> : <div/> }
-            { DogDisplay.displayImg ? <DogsList DogImg={DogImg} DogList={DogList} /> : <div/> }
 
-        </div>
-)
+    const DisplayContent = () => {
+        return (
+            <div>            
+            { DogList.displayBreed ? <DogsBreedList DogList={DogList} /> : <div/> }
+            { DogList.displayImg ? <DogsList DogList={DogList} /> : <div/> }
+            </div>
+        )
+
+    }
+    
+    return (
+            <div >
+                <Header/>
+                <DogsForm getRandomImage={getRandomImage} getBreed={getBreed} />
+                {DogList.isLoading ? <Spinner /> : <DisplayContent />}
+            </div>
+    )
 }
 
 export default DogsApp;

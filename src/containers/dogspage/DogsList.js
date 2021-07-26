@@ -2,12 +2,12 @@ import React from 'react';
 
 
 
-const DogsList = ({DogImg, DogList}) => {
+const DogsList = ({ DogList }) => {
     console.log('Dogs Listed')
-    if (DogList.isLoaded) {
+    console.log(DogList.imgURL[1])
         return(
                 <div className='DogList' >
-                    {DogImg.imgURL.map(dog => {
+                    {DogList.imgURL.map(dog => {
                         let imgURL = new URL(dog);
                         let pathArray =  imgURL.pathname.split('/');
                         let breed = pathArray[2];
@@ -26,11 +26,6 @@ const DogsList = ({DogImg, DogList}) => {
                 </div>
         );
 
-    } else {
-        return(
-            <div/>
-        )    
-    }
 }
 
 export default DogsList;
