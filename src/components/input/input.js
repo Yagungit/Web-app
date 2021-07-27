@@ -9,8 +9,8 @@ const CustomInput = ({placeholder, ...props}) => {
 
     return (
         <div className='field'>
-          <input autoComplete='off' required {...props}/>
-          <label>{placeholder}</label>
+          <input className='customInput' autoComplete='off' required {...props}/>
+          <label className='customLabel'>{placeholder}</label>
         </div>
       
     );

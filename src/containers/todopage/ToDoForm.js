@@ -1,26 +1,65 @@
-import React, { useState } from 'react';
-import CustomButton from '../../components/button/button';
-import CustomInput from '../../components/input/input';
+import React, { useState, useEffect, useRef } from 'react';
 
-const ToDoForm = ({ addTask }) => {
 
-    const [ userInput, setUserInput ] = useState('');
+function TodoForm( props, {todos} ) {
 
-    const handleChange = (e) => {
-        setUserInput(e.currentTarget.value)
-    }
+    const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
-    const handleSubmit = (e) => {
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    });
+
+    const handleChange = e => {
+        setInput(e.target.value);
+    };
+
+    const handleSubmit = e => {
         e.preventDefault();
-        addTask(userInput);
-        setUserInput('');
-    }
+
+        props.onSubmit({
+        id: Math.floor(Math.random() * 10000),
+        task: input
+        });
+        setInput('');
+    };
+
     return (
-        <form onSubmit={handleSubmit}>
-             <CustomInput value={userInput} type='text' onChange={handleChange} placeholder='Enter task...'/>
-             <CustomButton>Submit</CustomButton>
+        <form onSubmit={handleSubmit} className='todo-form'>
+        {props.edit ? (
+            <>
+            <input
+                placeholder='Update your item'
+                autoComplete='off'
+                value={input}
+                onChange={handleChange}
+                name='task'
+                ref={inputRef}
+                className='todo-input edit'
+            />
+            <button onClick={handleSubmit} className='todo-button edit'>
+                Update
+            </button>
+            </>
+        ) : (
+            <>
+            <input
+                placeholder='Add a todo'
+                autoComplete='off'
+                value={input}
+                onChange={handleChange}
+                name='task'
+                className='todo-input'
+                ref={inputRef}
+            />
+            <button onClick={handleSubmit} className='todo-button'>
+                Add todo
+            </button>
+            </>
+        )}
         </form>
     );
-};
+}
 
-export default ToDoForm;
+export default TodoForm;

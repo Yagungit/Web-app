@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Comic Sans MS;
+}
+
+.todo-app { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 32.5em;
+  min-height: 18.75em;
+  background: #ff4d4d;
+  text-align: center;
+  margin: 5em auto;
+  border-radius: 0.625em;
+  padding-bottom: 2em;
+}
+
+h2 {
+  margin: 1em 0;
+  color: white;
+  font-size: 1.5em;
+}
+
+.complete {
+  text-decoration: line-through;
+  background: rgb(128, 127, 127) !important;
+}
+
+.todo-form {
+  margin-bottom: 1em;
+  
+  margin: auto;
+  position: relative;
+}
+
+.todo-input {
+  padding: 0.8125em  0.25em 0.8125em 1em;
+  border-radius: 0.5em 0 0 0.5em;
+  border: 0.1875em solid rgb(90, 86, 86);
+  outline: none;
+  width: 20em;
+  background: transparent;
+  color: #fff;
+}
+
+.todo-input::placeholder {
+  color: #e2e2e2;
+}
+
+.todo-button {
+  padding: 1em;
+  border: none;
+  border-radius: 0 0.25em 0.25em 0;
+  cursor: pointer;
+  outline: none;
+  background: rgb(90, 86, 86);
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.todo-input.edit {
+  border: 0.2em solid rgb(90, 86, 86);
+}
+
+.todo-button.edit {
+  background: rgb(90, 86, 86);
+  padding: 1em 1.375em;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  display: flex;
+  align-items: center;
+  margin: 0.3125em auto;
+  color: #fff;
+  background: rgb(90, 86, 86);
+  padding: 1em;
+  border-radius:0.3125em;
+  width: 90%;
+}
+.todo-text {
+    position: relative;
+}
+.todo-line {
+    position: relative;
+    border-left: thick solid #fff;
+    background-color: white;
+    z-index: 1;
+}
+
+.icons {
+  display: flex;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+
+.icon {
+  color: #fff;
+  margin-right: 0.3125em;
+}
+
+@media (max-width: 480px) {
+    .todo-app {
+        width: 260px;
+    }
+    .todo-input, .todo-button {
+        transform: scale(0.8)
+    }
+    .todo-button{
+        border-radius: 0.5em;
+    }
+    .todo-input{
+        border-radius: 0.5em;
+        border: 0.2em solid rgb(90, 86, 86);
+    }
+}
+
+@media (min-width: 480px) and (max-width: 786px) {
+    .todo-app {
+        width: 400px;
+    }
+}
+
+@media (min-width: 786px) {
+    .todo-app {
+        transform: scale(1)    
+    }
+}
+
+/* style and some code are inspired by https://github.com/briancodex/react-todo-app-v1 */

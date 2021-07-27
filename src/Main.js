@@ -9,7 +9,7 @@ import Login from './containers/Login';
 import Register from './containers/Register';
 import Recover from './containers/Recover';
 import Welcome from './containers/WelcomePage';
-import ToDoApp from './containers/todopage/ToDoApp';
+import TodoList from './containers/todopage/TodoList';
 import DogsApp from './containers/dogspage/DogsApp';
 
 
@@ -36,7 +36,7 @@ const Main = () => {
         {/* The Switch decides which component to show based on the current URL.*/}
             <Route exact path='/' component={Welcome}></Route>
             <PrivateRoute path='/home' component={Home}></PrivateRoute>
-            <PrivateRoute path='/todo' component={ToDoApp}></PrivateRoute>
+            <PrivateRoute path='/todo' component={TodoList}></PrivateRoute>
             <PrivateRoute path='/dogs' component={DogsApp}></PrivateRoute>
             <Route exact path='/login' component={Login}></Route>
             <Route exact path='/register' component={Register}></Route>

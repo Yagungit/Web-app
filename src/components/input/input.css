@@ -5,7 +5,7 @@
     margin-bottom: 15px;
 }
 
-input {
+.customInput {
     
     display:block;
     position: relative;
@@ -15,7 +15,7 @@ input {
     font-family: Comic Sans MS;
 }
 
-label {
+.customLabel {
     position: absolute;
     transform: translateY(-25px);
     display:block;
@@ -24,22 +24,22 @@ label {
     color: grey;
 }
 
-input:focus {
+.customInput:focus {
     outline: 0;
     border-width: 0 0 2px;
     border-color: red
  
 }
 
-input:valid + label,
-input:focus + label {
+.customInput:valid + .customLabel,
+.customInput:focus + .customLabel {
     transform: scale(0.8) translate(-11%, -230%);
     color: red;
     
     
 }
 
- input:not(:focus):valid + label
+ .customInput:not(:focus):valid + .customLabel
 {
     transform: scale(0.8) translate(-11%, -230%);
     color: grey;
