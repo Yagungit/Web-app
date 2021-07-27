@@ -12,6 +12,7 @@
     overflow: hidden;
     padding: 5px;
     margin: 0.5rem;
+    min-width: 140px;
     border: none;
     border-radius: 5px;
     background-color: #ff4d4d;

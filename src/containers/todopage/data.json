@@ -1,25 +1,19 @@
 [{
   "id": 1,
-  "task": "Brush teeths",
-  "complete": true
+  "task": "Brush teeths"
 }, {
   "id": 2,
-  "task": "Do laundry",
-  "complete": true
+  "task": "Do laundry"
 }, {
   "id": 3,
-  "task": "Vacuum floor",
-  "complete": false
+  "task": "Vacuum floor"
 }, {
   "id": 4,
-  "task": "Feed cat",
-  "complete": true
+  "task": "Feed cat"
 }, {
   "id": 5,
-  "task": "Do a haircut",
-  "complete": false
+  "task": "Do a haircut"
 }, {
     "id": 6,
-    "task": "Feed fishes",
-    "complete": true
+    "task": "Feed fishes"
 }]

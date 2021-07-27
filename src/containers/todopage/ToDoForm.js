@@ -1,15 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 
 
-function TodoForm( props, {todos} ) {
+function TodoForm( props ) {
 
     const [input, setInput] = useState(props.edit ? props.edit.value : '');
-
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        inputRef.current.focus();
-    });
 
     const handleChange = e => {
         setInput(e.target.value);
@@ -17,9 +11,8 @@ function TodoForm( props, {todos} ) {
 
     const handleSubmit = e => {
         e.preventDefault();
-
         props.onSubmit({
-        id: Math.floor(Math.random() * 10000),
+        id: Math.floor(Math.random() * 10000), //when empty creates a bug with empty ids
         task: input
         });
         setInput('');
@@ -35,7 +28,6 @@ function TodoForm( props, {todos} ) {
                 value={input}
                 onChange={handleChange}
                 name='task'
-                ref={inputRef}
                 className='todo-input edit'
             />
             <button onClick={handleSubmit} className='todo-button edit'>
@@ -45,13 +37,12 @@ function TodoForm( props, {todos} ) {
         ) : (
             <>
             <input
-                placeholder='Add a todo'
+                placeholder='Add new entry'
                 autoComplete='off'
                 value={input}
                 onChange={handleChange}
                 name='task'
                 className='todo-input'
-                ref={inputRef}
             />
             <button onClick={handleSubmit} className='todo-button'>
                 Add todo

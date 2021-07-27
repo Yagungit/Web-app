@@ -82,7 +82,7 @@ function SideBar() {
                 <div className='sidebar-header'>
                     {isExpanded ?  <>
                         <RiCloseFill className='sidebar-icon' onClick={handleToggler}/>
-                        <h1 className='sidebar-logo'>Menu</h1>
+                        <h1 className='sidebar-logo position' >Menu</h1>
                         </> : <RiMenuLine className='sidebar-icon' onClick={handleToggler} /> 
                     }
                 </div>

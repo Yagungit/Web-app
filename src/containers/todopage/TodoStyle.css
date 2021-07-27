@@ -31,7 +31,6 @@ h2 {
 
 .todo-form {
   margin-bottom: 1em;
-  
   margin: auto;
   position: relative;
 }
@@ -44,6 +43,7 @@ h2 {
   width: 20em;
   background: transparent;
   color: #fff;
+  margin-bottom: 1em;
 }
 
 .todo-input::placeholder {
@@ -59,10 +59,11 @@ h2 {
   background: rgb(90, 86, 86);
   color: #fff;
   text-transform: capitalize;
+  margin-bottom: 1em
 }
 
 .todo-input.edit {
-  border: 0.2em solid rgb(90, 86, 86);
+  border: 0.1875em solid rgb(90, 86, 86);
 }
 
 .todo-button.edit {
@@ -74,6 +75,7 @@ h2 {
   display: flex;
   flex-direction: row;
   position: relative;
+  z-index: -1;
 }
 
 .todo-row {
@@ -85,15 +87,16 @@ h2 {
   padding: 1em;
   border-radius:0.3125em;
   width: 90%;
+  z-index: 0;
 }
 .todo-text {
     position: relative;
+    overflow: hidden;
 }
 .todo-line {
-    position: relative;
-    border-left: thick solid #fff;
-    background-color: white;
-    z-index: 1;
+    border-left: 6px solid green;
+    height: 15px;
+    
 }
 
 .icons {
@@ -106,6 +109,7 @@ h2 {
 .icon {
   color: #fff;
   margin-right: 0.3125em;
+  z-index: 1;
 }
 
 @media (max-width: 480px) {
